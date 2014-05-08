@@ -1,3 +1,3 @@
-Docker + Ubuntu 14.04 + Chef + Nginx
-====================================
+Docker + Ubuntu + Nginx
+=======================
 Just what it says
