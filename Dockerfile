@@ -24,7 +24,7 @@ ADD Berksfile /tmp/cheffing/
 RUN wget -P /tmp/cheffing https://opscode-omnibus-packages.s3.amazonaws.com/ubuntu/13.10/x86_64/chefdk_0.1.0-1_amd64.deb
 RUN dpkg -i /tmp/cheffing/chefdk_0.1.0-1_amd64.deb
 RUN cd /tmp/cheffing && berks vendor /tmp/cheffing/cookbooks
-RUN chef-client -z -c /tmp/cheffing/client.rb -j /tmp/cheffing/dna.json
+RUN chef-client -z -c /tmp/cheffing/client.rb -j /tmp/cheffing/dna.json -K /opt/chefdk/embedded/apps/test-kitchen/support/dummy-validation.pem
 RUN rm -rf /tmp/cheffing/
 RUN dpkg -P chefdk
 EXPOSE 80
