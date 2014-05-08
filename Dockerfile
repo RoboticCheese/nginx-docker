@@ -18,8 +18,13 @@ FROM roboticcheese/ubuntu-14.04-chef
 MAINTAINER Jonathan Hartman "j@p4nt5.com"
 
 RUN mkdir /tmp/cheffing
-ADD client.rb /tmp/cheffing
-ADD dna.json /tmp/cheffing
-RUN chef-client -z -c client.rb -j dna.json
-RUN rm -rf /tmp/cheffing
+ADD client.rb /tmp/cheffing/
+ADD dna.json /tmp/cheffing/
+ADD Berksfile /tmp/cheffing/
+RUN wget -P /tmp/cheffing https://opscode-omnibus-packages.s3.amazonaws.com/ubuntu/13.10/x86_64/chefdk_0.1.0-1_amd64.deb
+RUN dpkg -i /tmp/cheffing/chefdk_0.1.0-1_amd64.deb
+RUN cd/tmp/cheffing && berks vendor /tmp/cheffing/cookbooks
+RUN chef-client -z -c /tmp/cheffing/client.rb -j /tmp/cheffing/dna.json
+RUN rm -rf /tmp/cheffing/
+RUN dpkg -P chefdk
 EXPOSE 80
