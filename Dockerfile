@@ -14,7 +14,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-FROM roboticcheese/ubuntu-14.04
+FROM roboticcheese/ubuntu
 MAINTAINER Jonathan Hartman "j@p4nt5.com"
 
 RUN mkdir /tmp/cheffing
