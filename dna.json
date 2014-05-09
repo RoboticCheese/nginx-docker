@@ -1,3 +1,6 @@
 {
+  "nginx": {
+    "daemon_disable": true
+  },
   "run_list": ["recipe[nginx]"]
 }
