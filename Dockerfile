@@ -28,3 +28,4 @@ RUN chef-client -z -c /tmp/cheffing/client.rb -j /tmp/cheffing/dna.json -K /opt/
 RUN rm -rf /tmp/cheffing/
 RUN dpkg -P chefdk
 EXPOSE 80
+CMD service nginx restart
