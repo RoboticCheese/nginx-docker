@@ -27,5 +27,6 @@ RUN cd /tmp/cheffing && berks vendor /tmp/cheffing/cookbooks
 RUN chef-client -z -c /tmp/cheffing/client.rb -j /tmp/cheffing/dna.json -K /opt/chefdk/embedded/apps/test-kitchen/support/dummy-validation.pem
 RUN rm -rf /tmp/cheffing/
 RUN dpkg -P chefdk
+RUN service nginx stop
 EXPOSE 80
-CMD service nginx restart
+CMD service nginx start
